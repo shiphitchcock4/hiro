@@ -7,10 +7,8 @@ php:
 env:
 #- secure: Cs7HSRtu7n8XuWZkBpH9h+gYOSoP7qRGx/FmzpLRCpgFrSxJtyIDdO4ydaAGv0UsiTqv7+j6E2YqqhBdwc9GD+9OAmQLBw1cLlJKQupCKDKlniC7cPG5pr5s4ccV9WWI2JGVvU8rMLf3SWgguVBshvz1L4KHO/oUmUsU3QImC1hVR1DVlfU8PLKOxZQizste3sa6IQmuTa5/fAwYzfLfiypxocLxzbxTm674cgNBiQMT9U7Fu+iYe+OnZOwmZBXgZv5KVkLJjJAYhSo+ua5ijFVWIE8MCMqEPsL5N5B8YOzkzOImcRuxLEptIq8t+8+FTFakG9+vjo9uPRyyRspQEw==
 
-before_script:
+build:
   - composer dumpautoload
-
-script:
   - php -v
  # - hpunit --bootstrap tests/bootstrap.php tests
   #- phpunit --bootstrap tests/bootstrap.php tests
@@ -19,12 +17,5 @@ script:
   - phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage --bootstrap tests/bootstrap.php tests
   - echo $name
   - echo $version and $language
-
-
-after_archive:
-  - echo $SHIPPABLE_ARTIFACTS_URL
-
-after_script: 
-  - echo $key
 
 
